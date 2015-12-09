@@ -1,0 +1,14 @@
+<footer class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+  <div class="container">
+    <div class="navbar-text pull-left">
+    <% if current_user %>
+      Signed in as <%= current_user.full_name %> (<%= link_to "Log out", session_path("current"), method: :delete %>)
+      <% if current_user.admin? %>
+        <span class="label label-warning">Administrator</span>
+      <% end %>
+    <% else %>
+      <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
+    <% end %>
+    </div>
+  </div>
+</footer>

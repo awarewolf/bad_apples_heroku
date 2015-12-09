@@ -1,0 +1,112 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ *= require_bootstrap_and_overrides
+ *= require_movies
+ *= require_reviews
+ *= require_users
+ *= require rails_bootstrap_forms
+*/
+
+@import "bootswatch/slate/variables";
+@import "bootstrap";
+@import "bootswatch/slate/bootswatch";
+
+body {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  // background-image: url(http://bibliosophs.com/wp-content/uploads/2013/11/5926024477-iphone-ipad-wallpaper-dark-tile.jpg?7abc5c);
+  // background-size: 500px 500px;
+  background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTuebXZuMfrYX-2Dx_iLKHayC7GuMWKrIlpJ9eUWWdaer6FNlq7);
+  background-size: 300px 300px;
+  background-repeat: repeat;
+}
+
+#brandlogo {
+  float:left;
+  max-width:100px;
+  margin-top: -30px;
+}
+
+#brandname {
+  float:right;
+  max-width:150px;
+}
+
+.rating {
+    width: 50%;
+    margin: auto;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.movie-title {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.movie-rating {
+  text-align: center;
+  margin: auto;
+  font-size: 1.5em;
+}
+
+.bad-apple{
+  content:url(https://upload.wikimedia.org/wikipedia/commons/d/dc/Apple_with_worm_dan_gerh_01.svg);
+  height: 30px;
+  float: left;
+}
+
+.fresh-apple{
+  content:url(https://upload.wikimedia.org/wikipedia/commons/2/20/Apple_unbitten.svg);
+  height: 30px;
+  float: left;
+}
+
+// * {
+//   border: 1px solid;
+// }
+
+footer {
+  height:50px;
+}
+
+.pagination-wrapper {
+  width: 600px;
+  margin: 0 auto;
+}
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:left;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+.centered {
+    margin:auto;
+}
+
+label.required:after {
+  content:" *";
+}
+
+.navbar-signup {
+  padding-left: 20px;
+}

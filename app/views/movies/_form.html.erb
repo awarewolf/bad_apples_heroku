@@ -1,0 +1,44 @@
+<%= form_for @movie, html: { multipart:true } do |f| %>
+
+  <% if @movie.errors.any? %>
+    <div>
+      <%= pluralize(@movie.errors.count, "error") %> prevented this movie from being submitted:
+      <ul>
+        <% @movie.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label "title" %><br>
+        <%= f.text_field "title", class: "form-control", placeholder: "Enter movie title" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "release_date" %><br>
+        <%= f.date_field "release_date", class: "form-control", placeholder: "Enter movie release date" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "director" %><br>
+        <%= f.text_field "director", class: "form-control", placeholder: "Enter movie director" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "runtime_in_minutes" %><br>
+        <%= f.number_field "runtime_in_minutes", class: "form-control", placeholder: "Enter movie runtime in minutes" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "image" %><br>
+        <%= f.file_field :image, class: "btn btn-default", placeholder: "Upload movie poster image file" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "description" %><br>
+        <%= f.text_area "description", class: "form-control", placeholder: "Enter movie description" %>
+      </div>
+      <div class="actions">
+        <%= f.submit class: "btn btn-default" %>
+      </div>
+    <div>
+  <div>
+<% end %>

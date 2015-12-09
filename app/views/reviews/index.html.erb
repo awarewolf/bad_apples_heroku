@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Reviews</h1>
+
+<%= render @reviews %>
+
+<%= link_to "Return to #{movie.title}", movie, class: "btn btn-primary" %>
+<%= link_to 'New Review', [:new, movie, :review], class: "btn btn-default" %>

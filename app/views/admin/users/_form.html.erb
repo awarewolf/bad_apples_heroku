@@ -1,0 +1,44 @@
+<%= form_for [:admin, @user] do |f| %>
+
+  <% if @user.errors.any? %>
+    <div>
+      <%= pluralize(@user.errors.count, "error") %> prevented this user from being submitted:
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.label "email" %><br>
+        <%= f.text_field "email", class: "form-control", placeholder: "Enter user email" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "firstname" %><br>
+        <%= f.text_field "firstname", class: "form-control", placeholder: "Enter user first name" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "lastname" %><br>
+        <%= f.text_field "lastname", class: "form-control", placeholder: "Enter user last name" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "password" %><br>
+        <%= f.password_field "password", class: "form-control", placeholder: "Enter user password" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "password_confirmation" %><br>
+        <%= f.password_field "password_confirmation", class: "form-control", placeholder: "Enter user password confirmation" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "admin" %><br>
+        <%= f.check_box "admin", class: "checkbox", placeholder: "Specify if this user has administrator status" %>
+      </div>
+      <div class="actions">
+        <%= f.submit class: "btn btn-default" %>
+      </div>
+    <div>
+  <div>
+<% end %>

@@ -1,0 +1,24 @@
+<div class="col-sm-3 col-centered">
+  <div class="row row-centered">
+    <% if movie.poster_image_url %>
+    <%= link_to image_tag(movie.poster_image_url.versions[:thumb].to_s, class: 'thumb'), movie_path(movie) %>
+    <% else %>
+    <a href=<%= movie_path(movie) %> ><%= image_tag movie.image_url, class: "img-thumbnail" %></a>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="movie-title">
+      <%= movie.title %>
+    </div>
+    <div class="rating">
+      <% if movie.average_rating >= 5 %>
+      <div class="fresh-apple"></div>
+      <% else %>
+      <div class="bad-apple"></div>
+      <% end %>
+      <div class="movie-rating">
+        <%= movie.average_rating %>/10
+      </div>
+    </div>
+  </div>
+</div>

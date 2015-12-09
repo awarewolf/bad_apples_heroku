@@ -1,0 +1,34 @@
+<div class="page-header">
+  <%= link_to "< Back to all movies", movies_path %>
+</div>
+<div class="row">
+  <div class="col-md-3 col-centered">
+    <%= image_tag @movie.image_url, class: "img-thumbnail" %>
+  </div>
+  <div class="col-md-9">
+    <h2>
+    <%= @movie.title %>
+    <% if current_user %>
+    (<%= link_to "edit", edit_movie_path(@movie) %>, <%= link_to "delete", movie_path(@movie), method: :delete, confirm: "You sure?" %>)
+    <% end %>
+    </h2>
+    <h3>Released <%= formatted_date(@movie.release_date) %></h3>
+    <h1><%= @movie.review_average %>/10<h1>
+    <h4>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h4>
+    <p><%= @movie.description %></p>
+  </div>
+</div>
+<hr>
+<h3>Reviews of <em><%= @movie.title %></em></h3>
+<% @movie.reviews.each do |review| %>
+<div class="well">
+  <p><%= review.text %></p>
+  <p><%= review.rating_out_of_ten %>/10</p>
+  <small>- <%= review.user.full_name %></small><br/>
+</div>
+<% end %>
+<% if current_user %>
+<p><%= link_to "Write a review!", new_movie_review_path(@movie) %></p>
+<% else %>
+<p>Please <%= link_to "log in", new_session_path %> to add your own review.</p>
+<% end %>

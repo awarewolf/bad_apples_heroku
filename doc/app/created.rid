@@ -1,0 +1,19 @@
+Sun, 27 Sep 2015 15:54:16 -0700
+README.rdoc	Wed, 27 May 2015 14:50:22 -0700
+app/controllers/admin/users_controller.rb	Sat, 30 May 2015 15:47:32 -0700
+app/controllers/application_controller.rb	Sat, 30 May 2015 15:47:32 -0700
+app/controllers/movies_controller.rb	Sun, 27 Sep 2015 15:48:18 -0700
+app/controllers/reviews_controller.rb	Wed, 23 Sep 2015 13:59:18 -0700
+app/controllers/sessions_controller.rb	Wed, 27 May 2015 14:50:22 -0700
+app/controllers/users_controller.rb	Wed, 27 May 2015 14:50:22 -0700
+app/helpers/admin/users_helper.rb	Fri, 29 May 2015 00:01:38 -0700
+app/helpers/application_helper.rb	Sat, 30 May 2015 15:47:32 -0700
+app/helpers/movies_helper.rb	Wed, 27 May 2015 14:50:22 -0700
+app/helpers/reviews_helper.rb	Wed, 27 May 2015 14:50:23 -0700
+app/helpers/sessions_helper.rb	Wed, 27 May 2015 14:50:23 -0700
+app/helpers/users_helper.rb	Wed, 27 May 2015 14:50:23 -0700
+app/models/movie.rb	Sun, 27 Sep 2015 15:48:07 -0700
+app/models/review.rb	Sat, 30 May 2015 15:47:32 -0700
+app/models/user.rb	Sat, 30 May 2015 15:47:32 -0700
+app/uploaders/image_uploader.rb	Sat, 30 May 2015 15:47:32 -0700
+lib/tasks/movies_importer.rb	Sat, 30 May 2015 15:47:33 -0700
