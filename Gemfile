@@ -34,6 +34,10 @@ group :development, :test do
   gem 'quiet_assets'
 end
 
+group :production do
+  gem 'heroku-deflater'
+end
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
