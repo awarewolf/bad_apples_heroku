@@ -11,7 +11,7 @@ Faker = FFaker
 
 User.delete_all
 
-User.create!(firstname: 'site', lastname: 'admin', email: 'siteadmin@example.com', password: '123456', admin: true)
+User.create!(firstname: 'site', lastname: 'admin', email: 'siteadmin@example.com', password: '123456', admin: true, email_confirmed = true)
 
 10.times do
   User.create!(firstname: Faker::Name.first_name, lastname: Faker::Name.last_name, email: Faker::Internet.email, password: Faker::Internet.password)
