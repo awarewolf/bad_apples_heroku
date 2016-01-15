@@ -20,6 +20,10 @@ class User < ActiveRecord::Base
   validates :password,
     length: { in: 6..20 }, on: :create
 
+  def self.authenticate_with_salt(user_id,user_salt)
+    User.where(id:user_id, salt:user_salt).first
+  end
+
   def full_name
     "#{firstname} #{lastname}"
   end

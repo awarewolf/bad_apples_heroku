@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     resources :users, concerns: :paginatable
   end
 
-  resources :users, only: [:new, :create] do
+  # resources :users, only: [:new, :create] do
+  resources :users do
     member do
       get :confirm_email
     end

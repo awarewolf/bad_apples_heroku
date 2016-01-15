@@ -2,7 +2,10 @@
 <%= link_to "Create a new user", new_admin_user_path %>
 <hr>
 <% @users.each do |user| %>
-<h2><%= link_to user.full_name, admin_user_path(user) %></h2>
-<h1>Average movie rating <%= user.reviews.average(:rating_out_of_ten).round() %>/10<h1>
-<hr>
+  <h2><%= link_to user.full_name, admin_user_path(user) %></h2>
+  <h3>Average movie rating
+  <%= user.reviews.average(:rating_out_of_ten).try(:round) %>/10</h3>
+  <hr>
 <% end %>
+<%= paginate @users %>
+<%= #TODO offload logic to model/helper %>

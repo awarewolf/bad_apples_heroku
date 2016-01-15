@@ -1,7 +1,6 @@
 class MoviesController < ApplicationController
 
   def index
-
     @movies = Movie.all
 
     if params['search']
@@ -10,7 +9,6 @@ class MoviesController < ApplicationController
 
     ordered_movies = @movies.sort_by { |movie| movie.average_rating }.reverse
     @movies = Kaminari.paginate_array(ordered_movies).page(params[:page]).per(8)
-
   end
 
   def show
