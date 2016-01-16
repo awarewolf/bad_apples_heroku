@@ -12,17 +12,17 @@ Rails.application.routes.draw do
     resources :users, concerns: :paginatable
   end
 
-  # resources :users, only: [:new, :create] do
-  resources :users do
+  resources :users, only: [:new, :create] do
     member do
       get :confirm_email
     end
   end
 
-  resources :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
+  resources :sessions, only: [:new, :create, :destroy] do
+    # get 'login' => :new
+    # post 'login' => :create
+    # delete 'logout' => :destroy
+    # post 'users/' => 'users#create', :as => 'user'
   end
 
   # resources :sessions, only: [:new, :create, :destroy]
@@ -30,7 +30,8 @@ Rails.application.routes.draw do
   # get 'signup', to: 'users#new', as: 'signup'
   # post 'signup', to: 'users#create', as: 'signup'
   # get 'login', to: 'sessions#new', as: 'login'
-  # post 'login', to: 'sessions#create', as: 'login'
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
   # get 'logout', to: 'sessions#destroy', as: 'logout'
 
   root 'movies#index'

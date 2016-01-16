@@ -8,8 +8,10 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       if user.email_confirmed
-        sign_in user
-        redirect_back_or user
+        # sign_in user
+        # redirect_back_or user
+        session[:user_id] = user.id
+        redirect_to root_url, notice: "Logged in!"
       else
         flash.now[:error] = 'Please activate your account by following the instructions in the account confirmation email you received to proceed'
         render 'new'
