@@ -8,7 +8,6 @@ test:
   database: bad_apples_test
   pool: 5
   timeout: 5000
-
 production:
   adapter: postgresql
   database: bad_apples_production
