@@ -72,6 +72,14 @@ Rails.application.configure do
   #   authentication: 'plain',
   #   enable_starttls_auto: true
   # }
+  config.action_mailer.smtp_settings = {
+  :port           => ENV['MAILGUN_SMTP_PORT'],
+  :address        => ENV['MAILGUN_SMTP_SERVER'],
+  :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+  :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+  :domain         => 'bad-apples.herokuapp.com',
+  :authentication => :plain
+}
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
