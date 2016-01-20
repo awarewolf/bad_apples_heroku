@@ -6,7 +6,7 @@ class UserMailer < ActionMailer::Base
     end
 
     # default :from => @domain
-    default :from => ENV["gmail_username"]
+    default :from => @domain
 
  def registration_confirmation(user)
     @user = user
