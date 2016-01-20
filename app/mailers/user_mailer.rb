@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
     if Rails.env.production?
-      @domain == ENV["heroku_domain"]
+      @domain == "bad-apples.herokuapp.com"
     else
       @domain == "admin@localhost:3000"
     end
