@@ -1,7 +1,7 @@
 production:
   :address: smtp.sendgrid.net
   :port: 587
-  :authentication: plain
+  :authentication: login
   :user_name: SENDGRID_USERNAME
   :password: SENDGRID_PASSWORD
   # :from: 'Bad Apples Registration'
