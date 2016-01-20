@@ -4,6 +4,7 @@ production:
   :authentication: plain
   :user_name: SENDGRID_USERNAME
   :password: SENDGRID_PASSWORD
+  :from: 'Bad Apples Registration'
   :domain: heroku.com
   :enable_starttls_auto: true
 development:
