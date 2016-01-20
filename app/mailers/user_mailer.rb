@@ -6,7 +6,7 @@ class UserMailer < ActionMailer::Base
     # end
 
     # default :from => @domain
-    default from: "registration@bad-apples.herokuapp.com"
+    default from: "registration@bad-apples.com"
 
     # puts '*******************************************************************************'
     # puts 'from: #{@domain.to_s}'
