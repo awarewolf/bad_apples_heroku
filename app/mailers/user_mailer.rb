@@ -1,12 +1,12 @@
 class UserMailer < ActionMailer::Base
     if Rails.env.production?
-      @domain == "registration@bad-apples.herokuapp.com"
+      domain == "registration@bad-apples.herokuapp.com"
     else
-      @domain == "admin@localhost:3000"
+      domain == "admin@localhost:3000"
     end
 
     # default :from => @domain
-    default :from => @domain
+    default from: domain
 
  def registration_confirmation(user)
     @user = user
