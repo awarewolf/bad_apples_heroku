@@ -9,7 +9,7 @@ class UserMailer < ActionMailer::Base
     default :from => @domain
 
     puts '*******************************************************************************'
-    puts 'from: {@domain}'
+    puts 'from: #{@domain}'
     puts '*******************************************************************************'
 
  def registration_confirmation(user)
