@@ -2,6 +2,11 @@ source 'https://rubygems.org'
 
 gem 'pg'
 
+# gem 'nokogiri', '~> 1.6.7.2'
+# gem 'imdb', '~> 0.8'
+
+gem 'themoviedb-api'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.1.6'
 # Use SCSS for stylesheets
@@ -28,7 +33,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
-  # gem 'meta_request'
   gem 'ffaker', git: "https://github.com/EmmanuelOga/ffaker"
   gem 'spring'
   gem 'quiet_assets'

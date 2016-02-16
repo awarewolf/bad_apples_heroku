@@ -1,5 +1,7 @@
 class Movie < ActiveRecord::Base
 
+  include Tmdbapi
+
   scope :search, ->(query) {where("title like ? OR director like ? OR description like ?", "%#{query}%", "%#{query}%", "%#{query}%")}
 
   has_many :reviews
