@@ -3,7 +3,8 @@
 </div>
 <div class="row">
   <div class="col-md-3 col-centered">
-    <%= image_tag @movie.image_url, class: "img-thumbnail" %>
+    <%= image_tag @movie.poster_image_url, class: "img-thumbnail" %> <!-- For saved images -->
+
   </div>
   <div class="col-md-9">
     <h2>
@@ -13,7 +14,8 @@
     <% end %>
     </h2>
     <h3>Released <%= formatted_date(@movie.release_date) %></h3>
-    <h1><%= @movie.review_average %>/10<h1>
+    <h1><%= @movie.review_average %>/10
+    <h1>
     <h4>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h4>
     <p><%= @movie.description %></p>
   </div>
