@@ -3,7 +3,7 @@ module Tmdbapi
 
   attr_reader :get_configuration, :images, :base_url, :poster_size
 
-  POSTER_SIZE_INDEX = 1 # See http://docs.themoviedb.apiary.io {6 for original}
+  POSTER_SIZE_INDEX = 2 # See http://docs.themoviedb.apiary.io {6 for original}
 
   included do
       CONFIGURATION = self.get_configuration
@@ -11,11 +11,19 @@ module Tmdbapi
       POSTER = "#{BASE_URL}#{poster_size(POSTER_SIZE_INDEX)}"
   end
 
+  module InstanceMethods
+
+    # def get_director
+    #   Tmdb::Movie.director(self.tmdb_id).first.name
+    # end
+
+  end
+
   # methods defined here are going to extend the class, not the instance of it
   module ClassMethods
 
     def find_by_title(title)
-      Tmdb::Search.movie(title).results
+      Tmdb::Search.movie(title, adult: false).results.first
     end
 
     # private
@@ -35,5 +43,9 @@ module Tmdbapi
     def poster_size(index)
       self.images('poster_sizes', index)
     end
+
+    # def get_director
+    #   Tmdb::Movie.director(@movie.id).first.name
+    # end
   end
 end

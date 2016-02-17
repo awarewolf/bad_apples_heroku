@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'pg'
+gem 'awesome_print'
 
 # gem 'nokogiri', '~> 1.6.7.2'
 # gem 'imdb', '~> 0.8'

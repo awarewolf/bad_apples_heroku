@@ -2,7 +2,7 @@ class Movie < ActiveRecord::Base
 
   include Tmdbapi
 
-  before_create :add_poster_image_url
+  before_save :get_tmdb_poster_url, :get_tmdb_director, :get_tmdb_overview, :get_tmdb_release_date, :get_tmdb_vote_average
 
   scope :search, ->(query) {where("title like ? OR director like ? OR description like ?", "%#{query}%", "%#{query}%", "%#{query}%")}
 
@@ -40,10 +40,29 @@ class Movie < ActiveRecord::Base
 
   private
 
-  def add_poster_image_url
-    results = Movie.find_by_title(self.title)
-    return nil if results.empty?
-    self.poster_image_url = "#{Movie::POSTER}#{results.first.poster_path}"
+  def tmdb_result
+    @tmdb_result = Movie.find_by_title(self.title)
+    self.tmdb_id = @tmdb_result.id
+    @tmdb_result
   end
 
+  def get_tmdb_poster_url
+    self.poster_image_url = "#{Movie::POSTER}#{tmdb_result.poster_path}"
+  end
+
+  def get_tmdb_director
+    self.director = Tmdb::Movie.director(self.tmdb_id).first.name
+  end
+
+  def get_tmdb_overview
+    self.description = tmdb_result.overview
+  end
+
+  def get_tmdb_release_date
+    self.release_date = tmdb_result.release_date
+  end
+
+  def get_tmdb_vote_average
+    self.tmdb_rating = tmdb_result.vote_average
+  end
 end
