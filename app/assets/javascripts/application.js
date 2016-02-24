@@ -13,4 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require_bootstrap_and_overrides
 //= require turbolinks
+
+(function(){
+  $(window).scroll(function() {
+  // check if window scroll for more than 430px. May vary
+  // as per the height of your main banner.
+
+    if($(this).scrollTop() > 20) {
+        $('.navbar').addClass('opaque'); // adding the opaque class
+    } else {
+        $('.navbar').removeClass('opaque'); // removing the opaque class
+    }
+  });
+})();

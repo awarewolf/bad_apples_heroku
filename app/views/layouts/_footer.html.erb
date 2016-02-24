@@ -1,5 +1,5 @@
 <footer class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-  <div class="container">
+  <div class="container-fluid">
     <div class="navbar-text pull-left">
     <% if current_user %>
       Signed in as <%= current_user.full_name %> (<%= link_to "Log out", session_path("current"), method: :delete %>)
@@ -11,7 +11,7 @@
     <% end %>
     </div>
     <div class="navbar-header pull-right">
-      <img id="tmdblogo" src="https://assets.tmdb.org/images/logos/var_1_1_PoweredByTMDB_Blk_Logo_Antitled.png">
+      <a href="https://www.themoviedb.org/"><img id="tmdblogo" src="https://assets.tmdb.org/images/logos/var_1_1_PoweredByTMDB_Blk_Logo_Antitled.png"></a>
     </div>
   </div>
 </footer>

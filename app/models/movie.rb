@@ -2,7 +2,11 @@ class Movie < ActiveRecord::Base
 
   include Tmdbapi
 
-  before_save :get_tmdb_poster_url, :get_tmdb_director, :get_tmdb_overview, :get_tmdb_release_date, :get_tmdb_vote_average
+  before_save :get_tmdb_title,
+  :get_tmdb_poster_url,
+  :get_tmdb_director, :get_tmdb_overview,
+  :get_tmdb_release_date,
+  :get_tmdb_vote_average, if: :tmdb_result
 
   scope :search, ->(query) {where("title like ? OR director like ? OR description like ?", "%#{query}%", "%#{query}%", "%#{query}%")}
 
@@ -42,8 +46,18 @@ class Movie < ActiveRecord::Base
 
   def tmdb_result
     @tmdb_result = Movie.find_by_title(self.title)
-    self.tmdb_id = @tmdb_result.id
+    get_tmdb_id
     @tmdb_result
+  end
+
+  def get_tmdb_id
+    if @tmdb_result
+      self.tmdb_id = @tmdb_result.id
+    end
+  end
+
+  def get_tmdb_title
+    self.title = tmdb_result.title
   end
 
   def get_tmdb_poster_url
@@ -51,7 +65,9 @@ class Movie < ActiveRecord::Base
   end
 
   def get_tmdb_director
-    self.director = Tmdb::Movie.director(self.tmdb_id).first.name
+    unless Tmdb::Movie.director(self.tmdb_id).empty?
+      self.director = Tmdb::Movie.director(self.tmdb_id).first.name
+    end
   end
 
   def get_tmdb_overview

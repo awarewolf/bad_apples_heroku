@@ -25,22 +25,23 @@
 body {
   margin-top: 60px;
   margin-bottom: 60px;
-  // background-image: url(http://bibliosophs.com/wp-content/uploads/2013/11/5926024477-iphone-ipad-wallpaper-dark-tile.jpg?7abc5c);
+  background-image: url(http://bibliosophs.com/wp-content/uploads/2013/11/5926024477-iphone-ipad-wallpaper-dark-tile.jpg?7abc5c);
   // background-size: 500px 500px;
-  background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTuebXZuMfrYX-2Dx_iLKHayC7GuMWKrIlpJ9eUWWdaer6FNlq7);
+  // background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTuebXZuMfrYX-2Dx_iLKHayC7GuMWKrIlpJ9eUWWdaer6FNlq7);
   background-size: 300px 300px;
   background-repeat: repeat;
 }
 
 #brandlogo {
+  max-height: 50px;
   float:left;
   max-width:100px;
-  margin-top: -30px;
 }
 
 #brandname {
+  margin-top: 10px;
   float:right;
-  max-width:150px;
+  max-width:190px;
 }
 
 #tmdblogo {
@@ -75,6 +76,11 @@ body {
   content:url(https://upload.wikimedia.org/wikipedia/commons/2/20/Apple_unbitten.svg);
   height: 30px;
   float: left;
+}
+
+.img-thumbnail {
+  width:230px;
+  height:325px;
 }
 
 // * {
@@ -113,4 +119,102 @@ label.required:after {
 
 .navbar-signup {
   padding-left: 20px;
+}
+
+//FROM SOLSTICE
+
+.navbar-brand
+{
+  padding:2px;
+  padding-left:10px;
+}
+
+.navbar, .btn, .btn-success, .btn-primary .btn-default{
+   background-color: transparent;
+   background: transparent;
+   border-color: #777;
+   color: #777;
+}
+
+// .navbar li { color: #000 }
+/* changing the navbar to transparent */
+.navbar {
+  background-color: transparent;
+  background: transparent;
+  border: none;
+  color: white;
+  z-index: 100;
+  margin-bottom: 0;
+  border-radius: 0;
+  transition: all 0.5s linear;
+}
+
+/* Adjusting the brand and link colors */
+
+.navbar-default .navbar-brand {
+  color: white;
+  font-weight: 500;
+}
+.navbar-default .navbar-brand:hover {
+  color: white;
+}
+.navbar-default .navbar-nav > li > a {
+  color: white;
+  font-weight: 500;
+  font-size: 1em;
+  text-transform: lowercase;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:active {
+  color: white;
+  text-decoration: underline;
+}
+.navbar-default .navbar-nav > li > a:visited, .navbar-default .navbar-nav > li > a:focus {
+  color: white;
+  text-decoration: none;
+}
+
+/* opaque class which will be attached on scroll */
+
+.navbar.opaque {
+  background-color: white;
+  background: rgba(0, 0, 0, .9);
+  transition: background-color 1s ease 0s; /* Transition effect to make it fade in (optional) */
+  box-shadow: 0px 0px 4px #969696;
+}
+.navbar.opaque .navbar-brand {
+  color: #969696;
+  transition: color 0.5s ease 0s;
+}
+.navbar.opaque .navbar-nav > li > a {
+  color: #969696;
+  transition: color 0.5s ease 0s;
+}
+.navbar.opaque .navbar-nav > li > a:active {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 1133px) {
+.collapsing, .in {background-color: $gray-base;}
+.collapsing ul li a, .in ul li a {color: #555!important;}
+.collapsing ul li a:hover, .in ul li a:hover {color: $gray-base!important;}
+}
+.close, .close:hover{
+  color: white;
+}
+
+// //MOBILE FIXED NAV
+
+// @media (max-width: 767px) /* @grid-float-breakpoint -1 */
+// {
+//     .navbar-fixed-top
+//     {
+//     position: absolute;
+//     top: auto;
+//     }
+// }
+
+@media (max-width: 320px) {
+.element {
+      width: 50%;
+     }
 }
