@@ -22,16 +22,15 @@ user_ids = User.all.pluck(:id)
 Movie.delete_all
 Review.delete_all
 
-50.times do |count|
-  movie = Movie.create!(
-    title: Faker::Movie.title,
-    director: Faker::Name.name,
-    runtime_in_minutes: rand(90..160),
-    release_date: rand(32289).days.ago.to_date,
-    # image: open("http://lorempixel.com/400/600/"),
-    description: Faker::DizzleIpsum.paragraphs.join(" ")
-  )
-  rand(0..30).times do
+top_movies = Tmdb::Movie.top_rated
+
+top_movies.results.each do |top_rated_movie|
+  movie = Movie.new
+  movie.title = top_rated_movie.title
+  movie.save!(validate: false)
+  sleep(1)
+  puts "#{movie.title} created!"
+  rand(0..10).times do
     movie.reviews.create!(text: Faker::BaconIpsum.sentences.join(" ") , rating_out_of_ten: rand(1..10), user_id: user_ids.sample)
   end
 end

@@ -25,10 +25,12 @@
 body {
   margin-top: 60px;
   margin-bottom: 60px;
-  background-image: url(http://bibliosophs.com/wp-content/uploads/2013/11/5926024477-iphone-ipad-wallpaper-dark-tile.jpg?7abc5c);
-  // background-size: 500px 500px;
-  // background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTuebXZuMfrYX-2Dx_iLKHayC7GuMWKrIlpJ9eUWWdaer6FNlq7);
-  background-size: 300px 300px;
+  background-image: url(http://bibliosophs.com/wp-content/uploads/2013/11/5926024477-iphone-ipad-wallpaper-dark-tile.jpg?7abc5c);//Dark square tiles
+  background-size: 500px 500px;
+  // background-image: url(http://cache2.asset-cache.net/xt/185241464.jpg?v=1&g=fs1%7C0%7CEPL%7C41%7C464&s=1);//Red velvet
+  // background-size: 170px 160px;
+  // background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTuebXZuMfrYX-2Dx_iLKHayC7GuMWKrIlpJ9eUWWdaer6FNlq7);//Grey pattern
+  // background-size: 300px 300px;
   background-repeat: repeat;
 }
 
@@ -129,12 +131,12 @@ label.required:after {
   padding-left:10px;
 }
 
-.navbar, .btn, .btn-success, .btn-primary .btn-default{
-   background-color: transparent;
-   background: transparent;
-   border-color: #777;
-   color: #777;
-}
+// .navbar, .btn, .btn-success, .btn-primary .btn-default{
+//    background-color: transparent;
+//    background: transparent;
+//    border-color: #777;
+//    color: #777;
+// }
 
 // .navbar li { color: #000 }
 /* changing the navbar to transparent */
@@ -193,7 +195,7 @@ label.required:after {
   text-decoration: underline;
 }
 
-@media only screen and (max-width: 1133px) {
+@media only screen and (max-width: 1020px) {
 .collapsing, .in {background-color: $gray-base;}
 .collapsing ul li a, .in ul li a {color: #555!important;}
 .collapsing ul li a:hover, .in ul li a:hover {color: $gray-base!important;}

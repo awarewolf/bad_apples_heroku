@@ -25,7 +25,7 @@
         <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
         <div class="form-group ">
           <label class="sr-only">Search</label>
-          <%= text_field_tag( :search, nil, {class: 'form-control', placeholder: "Title/Director/Plot"}) %>
+          <%= text_field_tag( :search, nil, {class: 'form-control', placeholder: "Title/Director/Overview"}) %>
         </div>
         <%= submit_tag "Search", class: 'btn btn-primary' %>
         <% end %>

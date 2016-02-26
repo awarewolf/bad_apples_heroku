@@ -1,14 +1,42 @@
 class Movie < ActiveRecord::Base
 
   include Tmdbapi
-
-  before_save :get_tmdb_title,
+  # TODO Verify which callback is best to reduce tmdb API calls
+  before_create :get_tmdb_title,
   :get_tmdb_poster_url,
-  :get_tmdb_director, :get_tmdb_overview,
+  :get_tmdb_director,
+  :get_tmdb_overview,
   :get_tmdb_release_date,
   :get_tmdb_vote_average, if: :tmdb_result
 
-  scope :search, ->(query) {where("title like ? OR director like ? OR description like ?", "%#{query}%", "%#{query}%", "%#{query}%")}
+  scope :search, lambda { |query|
+    # Searches the movies table on the 'title', 'director' and 'description' columns.
+    # Matches using LIKE, automatically appends '%' to each term.
+    # LIKE is case INsensitive with MySQL, however it is case
+    # sensitive with PostGreSQL. To make it work in both worlds,
+    # we downcase everything.
+    return nil if query.blank?
+
+    # condition query, parse into individual keywords
+    terms = query.downcase.split(/\s+/)
+    # replace "*" with "%" for wildcard searches,
+    # append '%', remove duplicate '%'s
+    # TODO Search could be better?
+    terms = terms.map { |e|
+      # (e.gsub('*', '%') + '%').gsub(/%+/, '%')
+      ('%' + e + '%').gsub(/%+/, '%')
+    }
+    # configure number of OR conditions for provision
+    # of interpolation arguments. Adjust this if you
+    # change the number of OR conditions.
+    num_or_conds = 3
+    where(
+      terms.map { |term|
+        "(LOWER(title) LIKE ? OR LOWER(director) LIKE ? OR LOWER(description) LIKE ?)"
+      }.join(' AND '),
+      *terms.map { |e| [e] * num_or_conds }.flatten
+    )
+  }
 
   has_many :reviews
 
@@ -29,6 +57,8 @@ class Movie < ActiveRecord::Base
   validates :release_date,
     presence: true
 
+  validates :tmdb_id, uniqueness: true
+
   def review_average
     return 0 if reviews.size == 0
     reviews.sum(:rating_out_of_ten)/reviews.size
@@ -45,7 +75,7 @@ class Movie < ActiveRecord::Base
   private
 
   def tmdb_result
-    @tmdb_result = Movie.find_by_title(self.title)
+    @tmdb_result ||= Movie.find_by_title(self.title)
     get_tmdb_id
     @tmdb_result
   end
@@ -65,8 +95,9 @@ class Movie < ActiveRecord::Base
   end
 
   def get_tmdb_director
-    unless Tmdb::Movie.director(self.tmdb_id).empty?
-      self.director = Tmdb::Movie.director(self.tmdb_id).first.name
+    director = Tmdb::Movie.director(self.tmdb_id)
+    unless director.empty?
+      self.director = director.first.name
     end
   end
 
