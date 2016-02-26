@@ -7,14 +7,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # require './lib/tasks/movies_importer'
 
-Faker = FFaker
-
 User.delete_all
 
 User.create!(firstname: 'site', lastname: 'admin', email: 'siteadmin@example.com', password: '123456', admin: true, email_confirmed: true)
 
 10.times do
-  User.create!(firstname: Faker::Name.first_name, lastname: Faker::Name.last_name, email: Faker::Internet.email, password: '123456', email_confirmed: true)
+  User.create!(firstname: FFaker::Name.first_name, lastname: FFaker::Name.last_name, email: FFaker::Internet.email, password: '123456', email_confirmed: true)
 end
 
 user_ids = User.all.pluck(:id)
@@ -31,6 +29,6 @@ top_movies.results.each do |top_rated_movie|
   sleep(1)
   puts "#{movie.title} created!"
   rand(0..10).times do
-    movie.reviews.create!(text: Faker::BaconIpsum.sentences.join(" ") , rating_out_of_ten: rand(1..10), user_id: user_ids.sample)
+    movie.reviews.create!(text: FFaker::BaconIpsum.sentences.join(" ") , rating_out_of_ten: rand(1..10), user_id: user_ids.sample)
   end
 end
