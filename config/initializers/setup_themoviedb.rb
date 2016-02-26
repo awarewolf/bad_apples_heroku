@@ -1,4 +1,4 @@
-Tmdb::Api.key(ENV['tmdb_api_key'])
+Tmdb::Api.key(ENV['TMDB_API_KEY'])
 
 # tmdb_config = Tmdb::Configuration.get
 
