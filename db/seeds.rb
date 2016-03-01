@@ -7,6 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # require './lib/tasks/movies_importer'
 
+gem 'ffaker', git: "https://github.com/EmmanuelOga/ffaker"
+
 User.delete_all
 
 User.create!(firstname: 'site', lastname: 'admin', email: 'siteadmin@example.com', password: '123456', admin: true, email_confirmed: true)
