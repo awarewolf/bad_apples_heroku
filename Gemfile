@@ -62,3 +62,5 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'ffaker', git: "https://github.com/EmmanuelOga/ffaker"
+
