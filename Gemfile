@@ -9,7 +9,7 @@ gem 'awesome_print'
 gem 'themoviedb-api'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.1.6'
+gem 'rails', '~> 2.2.4'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass'
