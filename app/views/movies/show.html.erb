@@ -2,11 +2,10 @@
   <%= link_to "< Back to all movies", movies_path %>
 </div>
 <div class="row">
-  <div class="col-md-3 col-centered">
-    <%= image_tag @movie.poster_image_url %> <!-- For saved images -->
-
+  <div class="col-sm-12 col-md-4 col-lg-3">
+    <%= image_tag @movie.poster_image_url, class: "img-responsive center-block" %>
   </div>
-  <div class="col-md-9">
+  <div class="col-md-8 col-lg-9">
     <h2>
     <%= @movie.title %>
     <% if current_user %>
@@ -17,9 +16,9 @@
     <h1>
     <%# binding.pry %>
     <% unless @movie.reviews.empty? %>
-      <%= @movie.average_rating %>/10
+    <%= @movie.average_rating %>/10
     <% else %>
-      Be the first to <%= render 'write_a_review' %>
+    Be the first to <%= render 'write_a_review' %>
     <% end %>
     <h1>
     <h4>Dir. <%= @movie.director %> | <%= @movie.runtime_in_minutes %> minutes</h4>

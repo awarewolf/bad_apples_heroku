@@ -83,6 +83,7 @@ body {
 .img-thumbnail {
   width:230px;
   height:325px;
+  margin:auto;
 }
 
 // * {
@@ -91,6 +92,7 @@ body {
 
 footer {
   height:50px;
+  background-color: white;
 }
 
 .pagination-wrapper {
@@ -99,21 +101,21 @@ footer {
 }
 
 /* centered columns styles */
-.row-centered {
-    text-align:center;
-}
-.col-centered {
-    display:inline-block;
-    float:left;
-    /* reset the text-align */
-    text-align:left;
-    /* inline-block space fix */
-    margin-right:-4px;
-}
+// .row-centered {
+//     text-align:center;
+// }
+// .col-centered {
+//     display:inline-block;
+//     // float:left;
+//     /* reset the text-align */
+//     text-align:left;
+//     /* inline-block space fix */
+//     margin-right:-4px;
+// }
 
-.centered {
-    margin:auto;
-}
+// .centered {
+//     margin:auto;
+// }
 
 label.required:after {
   content:" *";
@@ -140,7 +142,7 @@ label.required:after {
 
 // .navbar li { color: #000 }
 /* changing the navbar to transparent */
-.navbar {
+.navbar-fixed-top {
   background-color: transparent;
   background: transparent;
   border: none;
@@ -195,28 +197,11 @@ label.required:after {
   text-decoration: underline;
 }
 
-@media only screen and (max-width: 1020px) {
+@media only screen and (max-width: 1200px) {
 .collapsing, .in {background-color: $gray-base;}
 .collapsing ul li a, .in ul li a {color: #555!important;}
 .collapsing ul li a:hover, .in ul li a:hover {color: $gray-base!important;}
 }
 .close, .close:hover{
   color: white;
-}
-
-// //MOBILE FIXED NAV
-
-// @media (max-width: 767px) /* @grid-float-breakpoint -1 */
-// {
-//     .navbar-fixed-top
-//     {
-//     position: absolute;
-//     top: auto;
-//     }
-// }
-
-@media (max-width: 320px) {
-.element {
-      width: 50%;
-     }
 }

@@ -22,9 +22,9 @@
   // as per the height of your main banner.
 
     if($(this).scrollTop() > 20) {
-        $('.navbar').addClass('opaque'); // adding the opaque class
+        $('.navbar-fixed-top').addClass('opaque'); // adding the opaque class
     } else {
-        $('.navbar').removeClass('opaque'); // removing the opaque class
+        $('.navbar-fixed-top').removeClass('opaque'); // removing the opaque class
     }
   });
 })();

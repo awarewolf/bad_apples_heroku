@@ -40,7 +40,7 @@
         <strong>Welcome <%= current_user.full_name %><strong>
       </div>
       <div class='navbar-form navbar-right'>
-        <%= link_to "Log out", session_path("current"), method: :delete, class: "btn btn-success" %>
+        <%= link_to "Log out", session_path("current"), method: :delete, class: "btn btn-default" %>
       </div>
       <% else %>
       <div class='navbar-form navbar-right'>

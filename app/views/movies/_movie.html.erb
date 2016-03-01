@@ -1,9 +1,9 @@
-<div class="col-sm-12 col-md-4 col-lg-3">
-  <div class="row row-centered">
+<div class="col-md-4 col-lg-3">
+  <div class="row">
     <% if movie.poster_image_url %>
-    <%= link_to image_tag(movie.poster_image_url.to_s, class: "img-thumbnail"), movie_path(movie) %>
+    <%= link_to image_tag(movie.poster_image_url.to_s, class: "img-thumbnail center-block"), movie_path(movie) %>
     <% else %>
-    <%= link_to image_tag("/images/fallback/default.png", class: "img-thumbnail"), movie_path(movie) %>
+    <%= link_to image_tag("/images/fallback/default.png", class: "img-thumbnail center-block"), movie_path(movie) %>
     <% end %>
   </div>
   <div class="row">
@@ -11,18 +11,18 @@
       <%= movie.title %>
     </div>
     <div class="rating">
-    <% unless movie.reviews.empty? %>
+      <% unless movie.reviews.empty? %>
       <% if movie.average_rating >= 5 %>
-        <div class="fresh-apple"></div>
+      <div class="fresh-apple"></div>
       <% else %>
-        <div class="bad-apple"></div>
+      <div class="bad-apple"></div>
       <% end %>
-    <% end %>
+      <% end %>
       <div class="movie-rating">
         <% unless movie.reviews.empty? %>
-          <%= movie.average_rating %>/10
+        <%= movie.average_rating %>/10
         <% else %>
-          <p>No reviews</p>
+        <p>No reviews</p>
         <% end %>
       </div>
     </div>
