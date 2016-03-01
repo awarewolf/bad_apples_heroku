@@ -15,6 +15,7 @@
 //= require bootstrap
 //= require_bootstrap_and_overrides
 //= require turbolinks
+//= require_tree
 
 (function(){
   $(window).scroll(function() {
