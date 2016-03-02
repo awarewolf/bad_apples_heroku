@@ -18,20 +18,20 @@
  *= require rails_bootstrap_forms
 */
 
-@import "bootswatch/slate/variables";
+@import "bootswatch/cyborg/variables";
 @import "bootstrap";
-@import "bootswatch/slate/bootswatch";
+@import "bootswatch/cyborg/bootswatch";
 
 body {
   margin-top: 60px;
   margin-bottom: 60px;
-  background-image: url(http://bibliosophs.com/wp-content/uploads/2013/11/5926024477-iphone-ipad-wallpaper-dark-tile.jpg?7abc5c);//Dark square tiles
-  background-size: 500px 500px;
-  // background-image: url(http://cache2.asset-cache.net/xt/185241464.jpg?v=1&g=fs1%7C0%7CEPL%7C41%7C464&s=1);//Red velvet
-  // background-size: 170px 160px;
-  // background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTuebXZuMfrYX-2Dx_iLKHayC7GuMWKrIlpJ9eUWWdaer6FNlq7);//Grey pattern
-  // background-size: 300px 300px;
-  background-repeat: repeat;
+  // background-image: url(http://bibliosophs.com/wp-content/uploads/2013/11/5926024477-iphone-ipad-wallpaper-dark-tile.jpg?7abc5c);//Dark square tiles
+  // background-size: 500px 500px;
+  // // background-image: url(http://cache2.asset-cache.net/xt/185241464.jpg?v=1&g=fs1%7C0%7CEPL%7C41%7C464&s=1);//Red velvet
+  // // background-size: 170px 160px;
+  // // background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTuebXZuMfrYX-2Dx_iLKHayC7GuMWKrIlpJ9eUWWdaer6FNlq7);//Grey pattern
+  // // background-size: 300px 300px;
+  // background-repeat: repeat;
 }
 
 #brandlogo {
