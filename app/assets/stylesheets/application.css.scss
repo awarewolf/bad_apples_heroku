@@ -68,6 +68,14 @@ body {
   font-size: 1.5em;
 }
 
+
+.rotten-apple{
+  // content:url(https://pixabay.com/static/uploads/photo/2012/04/15/20/03/apple-35132_960_720.png);
+  content:url(rotten-apple.png);
+  height: 30px;
+  float: left;
+}
+
 .bad-apple{
   content:url(https://upload.wikimedia.org/wikipedia/commons/d/dc/Apple_with_worm_dan_gerh_01.svg);
   height: 30px;
