@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :movies, concerns: :paginatable do
-    resources :reviews, :concerns => :paginatable
+    resources :reviews, concerns: :paginatable
   end
 
   namespace :admin do

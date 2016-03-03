@@ -1,33 +1,19 @@
-<%= form_for(@review) do |f| %>
-  <% if @review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+<%= link_to "Back to movie", movie_path(@movie) %><br/>
 
+<h2>Write a review of <em><%= @movie.title %></em>.</h2>
+
+<%= bootstrap_form_for([@movie, @review]) do |f| %>
+  <% if @review.errors.any? %>
+    <div>
+      <%= pluralize(@review.errors.count, "error") %> prevented the review from being saved:
       <ul>
-      <% @review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @review.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </div>
-  <div class="field">
-    <%= f.label :rating %><br>
-    <%= f.number_field :rating %>
-  </div>
-  <div class="field">
-    <%= f.label :movie_id %><br>
-    <%= f.text_field :movie_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.text_area :text, label: "Review" %>
+  <%= f.number_field :rating_out_of_ten, label: "Rating (1 - 10)" %>
+  <%= f.submit "Submit" %>
 <% end %>

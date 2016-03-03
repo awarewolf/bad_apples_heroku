@@ -1,7 +1,8 @@
  class ReviewsController < ApplicationController
 
   before_filter :restrict_access
-  before_filter :set_review
+  before_filter :load_movie #, :except => [:new, :create]
+
 
   def index
     @reviews = movie.reviews.all
@@ -12,7 +13,7 @@
   end
 
   def create
-    @review = movie.reviews.build(review_params)
+    @review = @movie.reviews.build(review_params)
     @review.user_id = current_user.id
 
     if @review.save
@@ -24,13 +25,13 @@
 
   private
 
-  def movie
+  def load_movie
     @movie ||= Movie.find(params[:movie_id])
   end
 
-  def set_review
-    @review ||= movie.reviews.find(params[:id])
-  end
+  # def set_review
+  #   @review ||= @movie.reviews.find(params[:id])
+  # end
 
   def review_params
     params.require(:review).permit(:text, :rating_out_of_ten)
