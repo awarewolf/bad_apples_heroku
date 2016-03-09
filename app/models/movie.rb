@@ -72,6 +72,14 @@ class Movie < ActiveRecord::Base
     reviews.order(:created_at).limit(count).includes(:user)
   end
 
+  def tmdb_vote_average
+    tmdb_result.vote_average
+  end
+
+  def tmdb_vote_count
+    tmdb_result.vote_count
+  end
+
   private
 
   def tmdb_result
@@ -107,9 +115,5 @@ class Movie < ActiveRecord::Base
 
   def get_tmdb_release_date
     self.release_date = tmdb_result.release_date
-  end
-
-  def get_tmdb_vote_average
-    self.tmdb_rating = tmdb_result.vote_average
   end
 end

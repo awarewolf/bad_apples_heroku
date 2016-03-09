@@ -11,22 +11,7 @@
       <%= movie.title %>
     </div>
     <div class="rating">
-      <% unless movie.reviews.empty? %>
-        <% if movie.average_rating >= 7 %>
-        <div class="fresh-apple"></div>
-        <% elsif movie.average_rating >=5 %>
-        <div class="bad-apple"></div>
-        <% else %>
-        <div class="rotten-apple"></div>
-        <% end %>
-      <% end %>
-      <div class="movie-rating">
-        <% unless movie.reviews.empty? %>
-        <%= movie.average_rating %>/10
-        <% else %>
-        <p>No reviews</p>
-        <% end %>
-      </div>
+      <%= render partial: "rating", locals: {movie: movie} %>
     </div>
   </div>
 </div>
