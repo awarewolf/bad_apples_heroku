@@ -7,7 +7,8 @@ class Movie < ActiveRecord::Base
   :get_tmdb_director,
   :get_tmdb_overview,
   :get_tmdb_release_date,
-  :get_tmdb_vote_average, if: :tmdb_result
+  :get_tmdb_vote_average,
+  :get_tmdb_runtime, if: :tmdb_result
 
   scope :search, lambda { |query|
     # Searches the movies table on the 'title', 'director' and 'description' columns.
@@ -115,5 +116,9 @@ class Movie < ActiveRecord::Base
 
   def get_tmdb_release_date
     self.release_date = tmdb_result.release_date
+  end
+
+  def get_tmdb_runtime
+    self.runtime_in_minutes = tmdb_result.runtime
   end
 end
