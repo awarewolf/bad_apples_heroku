@@ -2,12 +2,11 @@ class Movie < ActiveRecord::Base
 
   include Tmdbapi
   # TODO Verify which callback is best to reduce tmdb API calls
-  before_create :get_tmdb_title,
+  before_validation :get_tmdb_title,
   :get_tmdb_poster_url,
   :get_tmdb_director,
   :get_tmdb_overview,
   :get_tmdb_release_date,
-  :get_tmdb_vote_average,
   :get_tmdb_runtime, if: :tmdb_result
 
   scope :search, lambda { |query|
@@ -46,19 +45,27 @@ class Movie < ActiveRecord::Base
   validates :title,
     presence: true
 
-  validates :director,
-    presence: true
+  # validates :director,
+  #   presence: true
 
-  validates :runtime_in_minutes,
-    numericality: { only_integer: true }
+  # validates :runtime_in_minutes,
+  #   numericality: { only_integer: true }
 
-  validates :description,
-    presence: true
+  # validates :description,
+  #   presence: true
 
   validates :release_date,
     presence: true
 
+  validates :tmdb_id, presence: true
+
   validates :tmdb_id, uniqueness: true
+
+  # attr_accessor :seeding
+
+  # def seeding?
+  #   @seeding
+  # end
 
   def review_average
     return 0 if reviews.size == 0
@@ -86,6 +93,7 @@ class Movie < ActiveRecord::Base
   def tmdb_result
     @tmdb_result ||= Movie.find_by_title(self.title)
     get_tmdb_id
+    ap @tmdb_result
     @tmdb_result
   end
 
@@ -100,7 +108,11 @@ class Movie < ActiveRecord::Base
   end
 
   def get_tmdb_poster_url
-    self.poster_image_url = "#{Movie::POSTER}#{tmdb_result.poster_path}"
+    if tmdb_result.poster_path
+      self.poster_image_url = "#{Movie::POSTER}#{tmdb_result.poster_path}"
+    else
+      self.poster_image_url = nil
+    end
   end
 
   def get_tmdb_director
@@ -119,6 +131,6 @@ class Movie < ActiveRecord::Base
   end
 
   def get_tmdb_runtime
-    self.runtime_in_minutes = tmdb_result.runtime
+    self.runtime_in_minutes = tmdb_result.runtime.to_i
   end
 end
