@@ -31,7 +31,7 @@ def create_movies(tmdb_list)
       movie.save!
       sleep(1)
       puts "#{movie.title} created!"
-      rand(1).times do
+      rand(1..10).times do
         movie.reviews.create!(text: FFaker::BaconIpsum.sentences.join(" "),
           rating_out_of_ten: plausible_rating(selected_movie),
           user_id: @user_ids.sample)

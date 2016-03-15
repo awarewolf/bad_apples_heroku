@@ -131,6 +131,6 @@ class Movie < ActiveRecord::Base
   end
 
   def get_tmdb_runtime
-    self.runtime_in_minutes = tmdb_result.runtime.to_i
+    self.runtime_in_minutes = Tmdb::Movie.detail(self.tmdb_id).runtime
   end
 end
