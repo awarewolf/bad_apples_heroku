@@ -30,12 +30,8 @@ class Movie < ActiveRecord::Base
     # of interpolation arguments. Adjust this if you
     # change the number of OR conditions.
     num_or_conds = 3
-    where(
-      terms.map { |term|
-        "(LOWER(title) LIKE ? OR LOWER(director) LIKE ? OR LOWER(description) LIKE ?)"
-      }.join(' AND '),
-      *terms.map { |e| [e] * num_or_conds }.flatten
-    )
+    where(terms.map { |term| "(LOWER(title) LIKE ? OR LOWER(director) LIKE ? OR LOWER(description) LIKE ?)" }.
+      join(' AND '),*terms.map { |e| [e] * num_or_conds }.flatten)
   }
 
   has_many :reviews
@@ -60,12 +56,6 @@ class Movie < ActiveRecord::Base
   validates :tmdb_id, presence: true
 
   validates :tmdb_id, uniqueness: true
-
-  # attr_accessor :seeding
-
-  # def seeding?
-  #   @seeding
-  # end
 
   def review_average
     return 0 if reviews.size == 0

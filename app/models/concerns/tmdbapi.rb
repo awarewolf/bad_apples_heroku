@@ -11,14 +11,6 @@ module Tmdbapi
       POSTER = "#{BASE_URL}#{poster_size(POSTER_SIZE_INDEX)}"
   end
 
-  module InstanceMethods
-
-    # def get_director
-    #   Tmdb::Movie.director(self.tmdb_id).first.name
-    # end
-
-  end
-
   # methods defined here are going to extend the class, not the instance of it
   module ClassMethods
 
@@ -43,9 +35,5 @@ module Tmdbapi
     def poster_size(index)
       self.images('poster_sizes', index)
     end
-
-    # def get_director
-    #   Tmdb::Movie.director(@movie.id).first.name
-    # end
   end
 end
