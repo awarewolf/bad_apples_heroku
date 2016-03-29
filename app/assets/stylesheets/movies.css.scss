@@ -1,3 +1,64 @@
 // Place all the styles related to the movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.movies-search .results .ui-widget-content {
+  background: #fff;
+  font-size: .9em;
+  padding: .5em 0;
+  border-color: #ddd;
+  box-shadow: 0 .1em .2em rgba(187, 187, 187, 0.64);
+  line-height: 1.2;
+  max-height: 20em;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.movies-search .results .ui-menu-item {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  padding: .4em .6em .4em 6.2em;
+  position: relative;
+  border: 0;
+  border-left: 5px solid transparent;
+  position: relative;
+  height: 6.5em;
+}
+
+.movies-search .results .ui-state-focus {
+  background: #fff;
+  border-left-color: #08c;
+  font-weight: 300;
+}
+
+
+.movies-search .results .ui-menu-item .img {
+  position: absolute;
+  width: 5em;
+  height: 6em;
+  top: .4em;
+  left: .6em;
+  overflow: hidden;
+}
+
+.movies-search .results .ui-menu-item .img img {
+  max-width: 100%;
+}
+
+.movies-search .results .ui-menu-item .title {
+  display: block;
+  color: #555;
+}
+
+.movies-search .results .ui-menu-item .director {
+  display: block;
+  font-size: .8em;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-top: .6em;
+  letter-spacing: 1px;
+}
+
+.movies-search .results .ui-state-focus .title,
+.books-search .results .ui-state-focus .director {
+  color: #08c;
+}

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/autocomplete
 //= require bootstrap
 //= require_bootstrap_and_overrides
 //= require turbolinks

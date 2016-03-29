@@ -1,0 +1,42 @@
+
+var url = 'http://api.themoviedb.org/3/',
+    mode = 'search/movie?',
+    imgPath = 'http://image.tmdb.org/t/p/',
+    key = '&api_key=' + '<%= ENV['TMDB_API_KEY'] %>';
+
+$(function() {
+
+  $( "#movies-search" ).autocomplete({
+    source: function( request, response ) {
+      $.ajax({
+        type: 'GET',
+        url: url + mode + key,
+        dataType: "jsonp",
+        data: {
+          query: request.term
+        },
+        success: function( data ) {
+          titles = [];
+          data.results.forEach(function (element) {
+            titles.push(element.title);
+          });
+
+          response( titles );
+        }
+      });
+    },
+    minLength: 2,
+    focus:    function( event, movie ) {
+      //an item is being focussed on
+      console.log($(this).val(movie.item.title))
+      $(this).val(movie.item.title);
+      return false;
+    },
+    open: function() {
+      $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+    },
+    close: function() {
+      $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+    }
+  });
+});
